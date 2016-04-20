@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>backGround_haruhi.png</file>
+        <file>hitPoint.png</file>
+        <file>ove.png</file>
+        <file>BlueDon.png</file>
+        <file>RedDon.png</file>
+    </qresource>
+</RCC>
