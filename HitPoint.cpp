@@ -3,14 +3,17 @@
 #include <typeinfo>
 #include <QDebug>
 #include <QPixmap>
+#include "PlayView.h"
 #include "HitPoint.h"
 #include "RedDon.h"
 #include "BlueDon.h"
 
+extern PlayView * playView;
+
 HitPoint::HitPoint()
 {
     setRect(0 , 0 , 80 , 60);
-    setPos(182 , 280);
+    setPos(182 , 335);
 
     hitIcon = new QGraphicsPixmapItem(this);
     hitIcon->setPixmap(QPixmap(":/images/hitPoint.png"));
@@ -20,10 +23,7 @@ HitPoint::HitPoint()
 
 void HitPoint::checkCollision(int type)
 {
-    //紅0藍1
-    qDebug()<<"檢查碰撞";
     QList<QGraphicsItem * >colliding_items = collidingItems();
-    qDebug()<<"碰撞物數量"<<colliding_items.size();
     if(type==0)
     {
         for(int i=0 , n=colliding_items.size(); i<n; i++ )
@@ -33,14 +33,17 @@ void HitPoint::checkCollision(int type)
                 if( colliding_items[i]->x()>=192 && colliding_items[i]->x()<=205 )
                 {
                     qDebug()<<"Great Hit!";
+                    playView->playEngine->setGrade(2);
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
                     qDebug()<<"Good Hit!";
+                    playView->playEngine->setGrade(1);
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
                     qDebug()<<"Bad Hit!";
+                    playView->playEngine->setGrade(0);
                 }
                 scene()->removeItem( colliding_items[i] );
                 delete colliding_items[i];
@@ -57,14 +60,17 @@ void HitPoint::checkCollision(int type)
                 if( colliding_items[i]->x()>=192 && colliding_items[i]->x()<=205 )
                 {
                     qDebug()<<"Great Hit!";
+                    playView->playEngine->setGrade(2);
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
                     qDebug()<<"Good Hit!";
+                    playView->playEngine->setGrade(1);
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
                     qDebug()<<"Bad Hit!";
+                    playView->playEngine->setGrade(0);
                 }
                 scene()->removeItem( colliding_items[i] );
                 delete colliding_items[i];

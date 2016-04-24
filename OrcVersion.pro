@@ -17,14 +17,20 @@ SOURCES += main.cpp \
     PlayEngine.cpp \
     BlueDon.cpp \
     RedDon.cpp \
-    HitPoint.cpp
+    HitPoint.cpp \
+    GreatIcon.cpp \
+    GoodIcon.cpp \
+    BadIcon.cpp
 
 HEADERS  += \
     PlayView.h \
     PlayEngine.h \
     BlueDon.h \
     RedDon.h \
-    HitPoint.h
+    HitPoint.h \
+    GreatIcon.h \
+    GoodIcon.h \
+    BadIcon.h
 
 RESOURCES += \
     res.qrc

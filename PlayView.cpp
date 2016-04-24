@@ -3,6 +3,7 @@
 #include "PlayView.h"
 #include "BlueDon.h"
 #include "RedDon.h"
+#include "GreatIcon.h"
 
 PlayView::PlayView()
 {
@@ -22,20 +23,22 @@ PlayView::PlayView()
 
     ove = new QGraphicsPixmapItem();
     ove->setPixmap(QPixmap(":/images/ove.png"));
-    ove->setPos(0,240);
+    ove->setPos(0,295);
     playScene->addItem(ove);
 
     hitPoint = new HitPoint();
-    //hitPoint->setPen(Qt::NoPen);//不知道為什麼不能寫在constructor裡面
+    hitPoint->setPen(Qt::NoPen);//不知道為什麼不能寫在constructor裡面
     playScene->addItem(hitPoint);
 
     BlueDon * blueDon = new BlueDon();
     playScene->addItem(blueDon);
-    blueDon->setPos(222 , 300);//測試用
+    blueDon->setPos(202 , 320);//測試用
 
     RedDon * redDon = new RedDon();
     playScene->addItem(redDon);
-    redDon->setPos(222 , 300);//測試用
+    redDon->setPos(250 , 350);//測試用
 
-    //hitPoint->checkCollision(1);
+    GreatIcon * great  = new GreatIcon();
+    //playScene->addItem(great);
+
 }

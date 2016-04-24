@@ -5,5 +5,8 @@
         <file>ove.png</file>
         <file>BlueDon.png</file>
         <file>RedDon.png</file>
+        <file>great.png</file>
+        <file>good.png</file>
+        <file>bad.png</file>
     </qresource>
 </RCC>
