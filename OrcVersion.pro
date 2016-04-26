@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       +=multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,7 +21,10 @@ SOURCES += main.cpp \
     HitPoint.cpp \
     GreatIcon.cpp \
     GoodIcon.cpp \
-    BadIcon.cpp
+    BadIcon.cpp \
+    Note.cpp \
+    SheetMusic.cpp \
+    SheetMusicPlayer.cpp
 
 HEADERS  += \
     PlayView.h \
@@ -30,7 +34,10 @@ HEADERS  += \
     HitPoint.h \
     GreatIcon.h \
     GoodIcon.h \
-    BadIcon.h
+    BadIcon.h \
+    Note.h \
+    SheetMusic.h \
+    SheetMusicPlayer.h
 
 RESOURCES += \
     res.qrc

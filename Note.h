@@ -4,8 +4,10 @@
 
 class Note
 {
-public:
-    Note();
+    public:
+        Note();
+        int type; //0是紅 , 1是藍
+        int spawnSec;//歌曲從開始幾毫秒產生
 };
 
 #endif // NOTE_H

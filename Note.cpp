@@ -2,5 +2,6 @@
 
 Note::Note()
 {
-
+    type=-1;
+    spawnSec=-1;
 }

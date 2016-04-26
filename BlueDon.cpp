@@ -4,5 +4,10 @@
 BlueDon::BlueDon()
 {
     setPixmap(QPixmap(":/images/BlueDon.png"));
-    setPos(300 , 300);
+    setPos(800 , 343);
+}
+
+void BlueDon::move()
+{
+    setPos( x()-4 , y() );
 }

@@ -18,8 +18,12 @@ PlayView::PlayView()
 
     playEngine = new PlayEngine();
     playEngine->setFlag(QGraphicsItem::ItemIsFocusable);
-    playEngine->setFocus();
     playScene->addItem(playEngine);
+    playEngine->setFocus();
+    playEngine->grabKeyboard();
+    playEngine->readSheetMusic();
+    playEngine->playSheetMusic();
+    playEngine->playMusic();
 
     ove = new QGraphicsPixmapItem();
     ove->setPixmap(QPixmap(":/images/ove.png"));
@@ -30,15 +34,6 @@ PlayView::PlayView()
     hitPoint->setPen(Qt::NoPen);//不知道為什麼不能寫在constructor裡面
     playScene->addItem(hitPoint);
 
-    BlueDon * blueDon = new BlueDon();
-    playScene->addItem(blueDon);
-    blueDon->setPos(202 , 320);//測試用
 
-    RedDon * redDon = new RedDon();
-    playScene->addItem(redDon);
-    redDon->setPos(250 , 350);//測試用
-
-    GreatIcon * great  = new GreatIcon();
-    //playScene->addItem(great);
-
+    //playEngine->spawnBlueDon();
 }

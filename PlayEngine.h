@@ -2,8 +2,11 @@
 #define PLAYENGINE_H
 
 
+#include <QWidget>
 #include <QObject>
 #include <QGraphicsPixmapItem>
+#include "SheetMusic.h"
+#include "SheetMusicPlayer.h"
 
 class PlayEngine : public QObject , public QGraphicsPixmapItem
 {
@@ -12,6 +15,13 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
     public:
         PlayEngine();
         void keyPressEvent(QKeyEvent * event);
+        void spawnRedDon();
+        void spawnBlueDon();
+        void readSheetMusic();
+        void playSheetMusic();
+        void playMusic();
+        SheetMusic sheetMusic;
+        SheetMusicPlayer * sheetMusicPlayer;
 
     public slots:
         void spawnGrade(int);
@@ -21,8 +31,6 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
 
     signals:
         void setGrade(int);
-
-
 };
 
 #endif // PLAYENGINE_H

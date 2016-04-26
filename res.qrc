@@ -9,4 +9,7 @@
         <file>good.png</file>
         <file>bad.png</file>
     </qresource>
+    <qresource prefix="/sounds">
+        <file>sunday.mp3</file>
+    </qresource>
 </RCC>

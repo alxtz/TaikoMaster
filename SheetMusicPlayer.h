@@ -2,10 +2,22 @@
 #define SHEETMUSICPLAYER_H
 
 
-class SheetMusicPlayer
+#include <QObject>
+#include "SheetMusic.h"
+
+class SheetMusicPlayer : public QObject
 {
-public:
-    SheetMusicPlayer();
+    Q_OBJECT
+
+    public:
+        SheetMusicPlayer(SheetMusic * inputSheet);
+        int currentNote;
+        SheetMusic & sheetMusic;
+        void count();
+        void start();
+
+    public slots:
+        void spawn();
 };
 
 #endif // SHEETMUSICPLAYER_H
