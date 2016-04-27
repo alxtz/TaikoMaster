@@ -63,6 +63,9 @@ SOURCES       = main.cpp \
 		moc_PlayEngine.cpp \
 		moc_BlueDon.cpp \
 		moc_RedDon.cpp \
+		moc_GreatIcon.cpp \
+		moc_GoodIcon.cpp \
+		moc_BadIcon.cpp \
 		moc_SheetMusicPlayer.cpp
 OBJECTS       = main.o \
 		PlayView.o \
@@ -80,6 +83,9 @@ OBJECTS       = main.o \
 		moc_PlayEngine.o \
 		moc_BlueDon.o \
 		moc_RedDon.o \
+		moc_GreatIcon.o \
+		moc_GoodIcon.o \
+		moc_BadIcon.o \
 		moc_SheetMusicPlayer.o
 DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.6/gcc_64/mkspecs/common/unix.conf \
@@ -580,12 +586,14 @@ qrc_res.cpp: res.qrc \
 		hitPoint.png \
 		RedDon.png \
 		good.png \
+		dong.wav \
+		ka.wav \
 		sunday.mp3
 	/home/bj/Qt/5.6/gcc_64/bin/rcc -name res res.qrc -o qrc_res.cpp
 
-compiler_moc_header_make_all: moc_PlayEngine.cpp moc_BlueDon.cpp moc_RedDon.cpp moc_SheetMusicPlayer.cpp
+compiler_moc_header_make_all: moc_PlayEngine.cpp moc_BlueDon.cpp moc_RedDon.cpp moc_GreatIcon.cpp moc_GoodIcon.cpp moc_BadIcon.cpp moc_SheetMusicPlayer.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_PlayEngine.cpp moc_BlueDon.cpp moc_RedDon.cpp moc_SheetMusicPlayer.cpp
+	-$(DEL_FILE) moc_PlayEngine.cpp moc_BlueDon.cpp moc_RedDon.cpp moc_GreatIcon.cpp moc_GoodIcon.cpp moc_BadIcon.cpp moc_SheetMusicPlayer.cpp
 moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qwidget.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
@@ -691,6 +699,22 @@ moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmultimedia.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediacontent.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaresource.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
+		../../Qt/5.6/gcc_64/include/QtCore/QString \
+		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
+		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		SheetMusic.h \
@@ -884,6 +908,285 @@ moc_RedDon.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
 		RedDon.h
 	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/OrcVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore RedDon.h -o moc_RedDon.cpp
+
+moc_GreatIcon.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qisenum.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qflags.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		GreatIcon.h
+	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/OrcVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore GreatIcon.h -o moc_GreatIcon.cpp
+
+moc_GoodIcon.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qisenum.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qflags.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		GoodIcon.h
+	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/OrcVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore GoodIcon.h -o moc_GoodIcon.cpp
+
+moc_BadIcon.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qisenum.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qflags.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		BadIcon.h
+	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/OrcVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore BadIcon.h -o moc_BadIcon.cpp
 
 moc_SheetMusicPlayer.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
@@ -1087,6 +1390,22 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		PlayEngine.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmultimedia.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediacontent.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaresource.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
+		../../Qt/5.6/gcc_64/include/QtCore/QString \
+		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
+		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
 		SheetMusic.h \
 		Note.h \
 		SheetMusicPlayer.h
@@ -1215,6 +1534,22 @@ PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
 		PlayEngine.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmultimedia.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediacontent.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaresource.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
+		../../Qt/5.6/gcc_64/include/QtCore/QString \
+		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
+		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
 		SheetMusic.h \
 		Note.h \
 		SheetMusicPlayer.h \
@@ -1328,6 +1663,15 @@ PlayEngine.o: PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
+		PlayEngine.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qwidget.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpalette.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfontmetrics.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfontinfo.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcursor.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
@@ -1344,15 +1688,6 @@ PlayEngine.o: PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
 		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qwidget.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpalette.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qfontinfo.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qcursor.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		SheetMusic.h \
@@ -1687,6 +2022,22 @@ HitPoint.o: HitPoint.cpp ../../Qt/5.6/gcc_64/include/QtCore/QList \
 		PlayEngine.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmultimedia.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediacontent.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaresource.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
+		../../Qt/5.6/gcc_64/include/QtCore/QString \
+		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
+		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
 		SheetMusic.h \
 		Note.h \
 		SheetMusicPlayer.h \
@@ -1694,10 +2045,8 @@ HitPoint.o: HitPoint.cpp ../../Qt/5.6/gcc_64/include/QtCore/QList \
 		BlueDon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o HitPoint.o HitPoint.cpp
 
-GreatIcon.o: GreatIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
-		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+GreatIcon.o: GreatIcon.cpp ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -1727,9 +2076,36 @@ GreatIcon.o: GreatIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
@@ -1737,33 +2113,11 @@ GreatIcon.o: GreatIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
@@ -1775,7 +2129,13 @@ GreatIcon.o: GreatIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsScene \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
 		GreatIcon.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
@@ -1787,10 +2147,8 @@ GreatIcon.o: GreatIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GreatIcon.o GreatIcon.cpp
 
-GoodIcon.o: GoodIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
-		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+GoodIcon.o: GoodIcon.cpp ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -1820,9 +2178,36 @@ GoodIcon.o: GoodIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
@@ -1830,33 +2215,11 @@ GoodIcon.o: GoodIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
@@ -1868,7 +2231,13 @@ GoodIcon.o: GoodIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsScene \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
 		GoodIcon.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
@@ -1880,10 +2249,8 @@ GoodIcon.o: GoodIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GoodIcon.o GoodIcon.cpp
 
-BadIcon.o: BadIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
-		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+BadIcon.o: BadIcon.cpp ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -1913,9 +2280,36 @@ BadIcon.o: BadIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
@@ -1923,33 +2317,11 @@ BadIcon.o: BadIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
@@ -1961,7 +2333,13 @@ BadIcon.o: BadIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
 		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsScene \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
 		BadIcon.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
@@ -2107,7 +2485,23 @@ SheetMusicPlayer.o: SheetMusicPlayer.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDeb
 		HitPoint.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmultimedia.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediacontent.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaresource.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
+		../../Qt/5.6/gcc_64/include/QtCore/QString \
+		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
+		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
+		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SheetMusicPlayer.o SheetMusicPlayer.cpp
 
 qrc_res.o: qrc_res.cpp 
@@ -2121,6 +2515,15 @@ moc_BlueDon.o: moc_BlueDon.cpp
 
 moc_RedDon.o: moc_RedDon.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_RedDon.o moc_RedDon.cpp
+
+moc_GreatIcon.o: moc_GreatIcon.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GreatIcon.o moc_GreatIcon.cpp
+
+moc_GoodIcon.o: moc_GoodIcon.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GoodIcon.o moc_GoodIcon.cpp
+
+moc_BadIcon.o: moc_BadIcon.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_BadIcon.o moc_BadIcon.cpp
 
 moc_SheetMusicPlayer.o: moc_SheetMusicPlayer.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SheetMusicPlayer.o moc_SheetMusicPlayer.cpp

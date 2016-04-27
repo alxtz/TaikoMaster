@@ -11,5 +11,7 @@
     </qresource>
     <qresource prefix="/sounds">
         <file>sunday.mp3</file>
+        <file>ka.wav</file>
+        <file>dong.wav</file>
     </qresource>
 </RCC>

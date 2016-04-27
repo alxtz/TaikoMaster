@@ -1,9 +1,9 @@
 #include <fstream>
 #include <QDebug>
 #include <QTimer>
+#include <QSound>
 #include <QKeyEvent>
 #include <QGraphicsScene>
-#include <QMediaPlayer>
 #include "PlayEngine.h"
 #include "PlayView.h"
 #include "GreatIcon.h"
@@ -29,6 +29,13 @@ PlayEngine::PlayEngine()
 
     moveTimer = new QTimer();
     moveTimer->start(7);
+
+    dongPlayer = new QMediaPlayer();
+    dongPlayer->setMedia(QUrl("qrc:/sounds/dong.wav"));
+
+
+    kaPlayer = new QMediaPlayer();
+    kaPlayer->setMedia(QUrl("qrc:/sounds/ka.wav"));
 }
 
 void PlayEngine::keyPressEvent(QKeyEvent *event)
@@ -37,15 +44,20 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
     {
         qDebug()<<"you pressed F !";
         playView->hitPoint->checkCollision(0);
-        //spawnGrade(1);
+
+        QSound::play("./dong.wav");
+        //dongPlayer->stop();
+        //dongPlayer->play();
     }
     else if( event->key()==Qt::Key_K )
     {
         qDebug()<<"you pressed K !";
         playView->hitPoint->checkCollision(1);
-        //spawnGrade(2);
-    }
 
+        QSound::play("./ka.wav");
+        //kaPlayer->stop();
+        //kaPlayer->play();
+    }
 }
 
 void PlayEngine::spawnRedDon()

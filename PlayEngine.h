@@ -4,6 +4,7 @@
 
 #include <QWidget>
 #include <QObject>
+#include <QMediaPlayer>
 #include <QGraphicsPixmapItem>
 #include "SheetMusic.h"
 #include "SheetMusicPlayer.h"
@@ -22,6 +23,8 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         void playMusic();
         SheetMusic sheetMusic;
         SheetMusicPlayer * sheetMusicPlayer;
+        QMediaPlayer * dongPlayer;
+        QMediaPlayer * kaPlayer;
 
     public slots:
         void spawnGrade(int);
