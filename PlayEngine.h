@@ -25,6 +25,7 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         SheetMusicPlayer * sheetMusicPlayer;
         QMediaPlayer * dongPlayer;
         QMediaPlayer * kaPlayer;
+        QMediaPlayer * BGMusic;
 
     public slots:
         void spawnGrade(int);

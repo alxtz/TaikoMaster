@@ -8,6 +8,8 @@
         <file>great.png</file>
         <file>good.png</file>
         <file>bad.png</file>
+        <file>drumPic.jpg</file>
+        <file>smallDrum.jpg</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>sunday.mp3</file>

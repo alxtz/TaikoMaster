@@ -36,6 +36,11 @@ PlayEngine::PlayEngine()
 
     kaPlayer = new QMediaPlayer();
     kaPlayer->setMedia(QUrl("qrc:/sounds/ka.wav"));
+
+    sheetMusicPlayer = new SheetMusicPlayer( & sheetMusic);
+
+    BGMusic = new QMediaPlayer();
+    BGMusic->setMedia(QUrl("qrc:/sounds/sunday.mp3"));
 }
 
 void PlayEngine::keyPressEvent(QKeyEvent *event)
@@ -44,8 +49,9 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
     {
         qDebug()<<"you pressed F !";
         playView->hitPoint->checkCollision(0);
-
+        playView->drum->setSmall();
         QSound::play("./dong.wav");
+
         //dongPlayer->stop();
         //dongPlayer->play();
     }
@@ -53,7 +59,7 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
     {
         qDebug()<<"you pressed K !";
         playView->hitPoint->checkCollision(1);
-
+        playView->drum->setSmall();
         QSound::play("./ka.wav");
         //kaPlayer->stop();
         //kaPlayer->play();
@@ -93,7 +99,7 @@ void PlayEngine::readSheetMusic()
         if(inputOve>>foo)
         {
             qDebug()<<"第"<<i<<"個拍子數是"<<foo;
-            sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10550;
+            sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10450;
             //10550後面會有一點問題，之後在改譜面
         }
         else
@@ -110,14 +116,11 @@ void PlayEngine::readSheetMusic()
 
 void PlayEngine::playSheetMusic()
 {
-    sheetMusicPlayer = new SheetMusicPlayer( & sheetMusic);
     sheetMusicPlayer->start();
 }
 
 void PlayEngine::playMusic()
 {
-    QMediaPlayer * BGMusic = new QMediaPlayer();
-    BGMusic->setMedia(QUrl("qrc:/sounds/sunday.mp3"));
     BGMusic->play();
 }
 

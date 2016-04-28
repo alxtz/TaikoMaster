@@ -1,5 +1,8 @@
+#include <QPen>
 #include <QBrush>
 #include <QImage>
+#include <QWidget>
+#include <QPainter>
 #include "PlayView.h"
 #include "BlueDon.h"
 #include "RedDon.h"
@@ -33,6 +36,12 @@ PlayView::PlayView()
     hitPoint = new HitPoint();
     hitPoint->setPen(Qt::NoPen);//不知道為什麼不能寫在constructor裡面
     playScene->addItem(hitPoint);
+
+    drum = new Drum();
+    playScene->addItem(drum);
+
+    scoreNow = new ScoreNow();
+    playScene->addItem(scoreNow);
 
 
     //playEngine->spawnBlueDon();

@@ -34,11 +34,13 @@ void HitPoint::checkCollision(int type)
                 {
                     qDebug()<<"Great Hit!";
                     playView->playEngine->setGrade(2);
+                    playView->scoreNow->addScore(500);
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
                     qDebug()<<"Good Hit!";
                     playView->playEngine->setGrade(1);
+                    playView->scoreNow->addScore(200);
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
@@ -61,11 +63,13 @@ void HitPoint::checkCollision(int type)
                 {
                     qDebug()<<"Great Hit!";
                     playView->playEngine->setGrade(2);
+                    playView->scoreNow->addScore(500);
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
                     qDebug()<<"Good Hit!";
                     playView->playEngine->setGrade(1);
+                    playView->scoreNow->addScore(200);
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {

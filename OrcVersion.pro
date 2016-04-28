@@ -24,7 +24,10 @@ SOURCES += main.cpp \
     BadIcon.cpp \
     Note.cpp \
     SheetMusic.cpp \
-    SheetMusicPlayer.cpp
+    SheetMusicPlayer.cpp \
+    Drum.cpp \
+    SmallDrum.cpp \
+    ScoreNow.cpp
 
 HEADERS  += \
     PlayView.h \
@@ -37,7 +40,10 @@ HEADERS  += \
     BadIcon.h \
     Note.h \
     SheetMusic.h \
-    SheetMusicPlayer.h
+    SheetMusicPlayer.h \
+    Drum.h \
+    SmallDrum.h \
+    ScoreNow.h
 
 RESOURCES += \
     res.qrc
