@@ -99,7 +99,8 @@ void PlayEngine::readSheetMusic()
         if(inputOve>>foo)
         {
             qDebug()<<"第"<<i<<"個拍子數是"<<foo;
-            sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10450;
+            //sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10370;
+            sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10375;
             //10550後面會有一點問題，之後在改譜面
         }
         else

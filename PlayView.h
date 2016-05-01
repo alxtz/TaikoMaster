@@ -7,6 +7,8 @@
 #include <QGraphicsPixmapItem>
 #include "Drum.h"
 #include "ScoreNow.h"
+#include "PercentNow.h"
+#include "Combo.h"
 #include "HitPoint.h"
 #include "PlayEngine.h"
 
@@ -20,6 +22,8 @@ class PlayView : public QGraphicsView
         HitPoint * hitPoint;
         Drum * drum;
         ScoreNow * scoreNow;
+        PercentNow * percentNow;
+        Combo * combo;
 };
 
 #endif // PLAYVIEW_H

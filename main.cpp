@@ -10,5 +10,8 @@ int main(int argc, char *argv[])
     playView = new PlayView();
     playView->show();
 
+    playView->playEngine->playSheetMusic();
+    playView->playEngine->playMusic();
+
     return a.exec();
 }

@@ -62,7 +62,9 @@ SOURCES       = main.cpp \
 		SheetMusicPlayer.cpp \
 		Drum.cpp \
 		SmallDrum.cpp \
-		ScoreNow.cpp qrc_res.cpp \
+		ScoreNow.cpp \
+		PercentNow.cpp \
+		Combo.cpp qrc_res.cpp \
 		moc_PlayEngine.cpp \
 		moc_BlueDon.cpp \
 		moc_RedDon.cpp \
@@ -86,6 +88,8 @@ OBJECTS       = main.o \
 		Drum.o \
 		SmallDrum.o \
 		ScoreNow.o \
+		PercentNow.o \
+		Combo.o \
 		qrc_res.o \
 		moc_PlayEngine.o \
 		moc_BlueDon.o \
@@ -242,7 +246,9 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		SheetMusicPlayer.h \
 		Drum.h \
 		SmallDrum.h \
-		ScoreNow.h main.cpp \
+		ScoreNow.h \
+		PercentNow.h \
+		Combo.h main.cpp \
 		PlayView.cpp \
 		PlayEngine.cpp \
 		BlueDon.cpp \
@@ -256,7 +262,9 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		SheetMusicPlayer.cpp \
 		Drum.cpp \
 		SmallDrum.cpp \
-		ScoreNow.cpp
+		ScoreNow.cpp \
+		PercentNow.cpp \
+		Combo.cpp
 QMAKE_TARGET  = OrcVersion
 DESTDIR       = 
 TARGET        = OrcVersion
@@ -566,8 +574,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents res.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents PlayView.h PlayEngine.h BlueDon.h RedDon.h HitPoint.h GreatIcon.h GoodIcon.h BadIcon.h Note.h SheetMusic.h SheetMusicPlayer.h Drum.h SmallDrum.h ScoreNow.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp PlayView.cpp PlayEngine.cpp BlueDon.cpp RedDon.cpp HitPoint.cpp GreatIcon.cpp GoodIcon.cpp BadIcon.cpp Note.cpp SheetMusic.cpp SheetMusicPlayer.cpp Drum.cpp SmallDrum.cpp ScoreNow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents PlayView.h PlayEngine.h BlueDon.h RedDon.h HitPoint.h GreatIcon.h GoodIcon.h BadIcon.h Note.h SheetMusic.h SheetMusicPlayer.h Drum.h SmallDrum.h ScoreNow.h PercentNow.h Combo.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp PlayView.cpp PlayEngine.cpp BlueDon.cpp RedDon.cpp HitPoint.cpp GreatIcon.cpp GoodIcon.cpp BadIcon.cpp Note.cpp SheetMusic.cpp SheetMusicPlayer.cpp Drum.cpp SmallDrum.cpp ScoreNow.cpp PercentNow.cpp Combo.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1496,11 +1504,13 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		Drum.h \
 		ScoreNow.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainter \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		PercentNow.h \
 		HitPoint.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
@@ -1523,9 +1533,10 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		SheetMusicPlayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
-		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -1555,27 +1566,27 @@ PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
@@ -1605,21 +1616,14 @@ PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
 		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QBrush \
 		../../Qt/5.6/gcc_64/include/QtGui/QImage \
-		PlayView.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qtextoption.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qfontinfo.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qscrollarea.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qframe.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qwidget.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpalette.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfontmetrics.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfontinfo.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qsizepolicy.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qcursor.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
@@ -1637,6 +1641,15 @@ PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
 		../../Qt/5.6/gcc_64/include/QtCore/qfiledevice.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainter \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtextoption.h \
+		PlayView.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qscrollarea.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qframe.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsScene \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -1644,10 +1657,10 @@ PlayView.o: PlayView.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
 		Drum.h \
 		ScoreNow.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		PercentNow.h \
 		HitPoint.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
@@ -1820,7 +1833,9 @@ PlayEngine.o: PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qframe.h \
 		Drum.h \
 		ScoreNow.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainter \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		PercentNow.h \
 		HitPoint.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		GreatIcon.h \
@@ -2139,11 +2154,13 @@ HitPoint.o: HitPoint.cpp ../../Qt/5.6/gcc_64/include/QtCore/QList \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		Drum.h \
 		ScoreNow.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainter \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		PercentNow.h \
 		HitPoint.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
@@ -2607,11 +2624,13 @@ SheetMusicPlayer.o: SheetMusicPlayer.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDeb
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		Drum.h \
 		ScoreNow.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainter \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		PercentNow.h \
 		HitPoint.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
@@ -2832,7 +2851,144 @@ SmallDrum.o: SmallDrum.cpp ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SmallDrum.o SmallDrum.cpp
 
-ScoreNow.o: ScoreNow.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFont \
+ScoreNow.o: ScoreNow.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qisenum.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qflags.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QFont \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QColor \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainter \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtextoption.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfontinfo.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfontmetrics.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPainterPath \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QStyleOptionGraphicsItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qwidget.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpalette.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcursor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfile.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfiledevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qvalidator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregularexpression.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qicon.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qslider.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qstyle.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qtabbar.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qrubberband.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qframe.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QInputDialog \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qinputdialog.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qdialog.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qlineedit.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtextformat.h \
+		ScoreNow.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScoreNow.o ScoreNow.cpp
+
+PercentNow.o: PercentNow.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFont \
 		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
@@ -2894,37 +3050,47 @@ ScoreNow.o: ScoreNow.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFont \
 		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
-		ScoreNow.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QColor \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QTextCharFormat \
+		../../Qt/5.6/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScoreNow.o ScoreNow.cpp
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtextoption.h \
+		PercentNow.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PercentNow.o PercentNow.cpp
+
+Combo.o: Combo.cpp Combo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Combo.o Combo.cpp
 
 qrc_res.o: qrc_res.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp

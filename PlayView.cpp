@@ -25,8 +25,8 @@ PlayView::PlayView()
     playEngine->setFocus();
     playEngine->grabKeyboard();
     playEngine->readSheetMusic();
-    playEngine->playSheetMusic();
-    playEngine->playMusic();
+    //playEngine->playSheetMusic();
+    //playEngine->playMusic();
 
     ove = new QGraphicsPixmapItem();
     ove->setPixmap(QPixmap(":/images/ove.png"));
@@ -42,6 +42,12 @@ PlayView::PlayView()
 
     scoreNow = new ScoreNow();
     playScene->addItem(scoreNow);
+    
+    percentNow = new PercentNow();
+    playScene->addItem(percentNow);
+
+    combo = new Combo();
+    playScene->addItem(combo);
 
 
     //playEngine->spawnBlueDon();

@@ -27,7 +27,9 @@ SOURCES += main.cpp \
     SheetMusicPlayer.cpp \
     Drum.cpp \
     SmallDrum.cpp \
-    ScoreNow.cpp
+    ScoreNow.cpp \
+    PercentNow.cpp \
+    Combo.cpp
 
 HEADERS  += \
     PlayView.h \
@@ -43,7 +45,9 @@ HEADERS  += \
     SheetMusicPlayer.h \
     Drum.h \
     SmallDrum.h \
-    ScoreNow.h
+    ScoreNow.h \
+    PercentNow.h \
+    Combo.h
 
 RESOURCES += \
     res.qrc

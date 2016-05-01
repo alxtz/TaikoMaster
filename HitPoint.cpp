@@ -35,17 +35,23 @@ void HitPoint::checkCollision(int type)
                     qDebug()<<"Great Hit!";
                     playView->playEngine->setGrade(2);
                     playView->scoreNow->addScore(500);
+                    playView->percentNow->hitted(true);
+                    playView->combo->addCombo();
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
                     qDebug()<<"Good Hit!";
                     playView->playEngine->setGrade(1);
                     playView->scoreNow->addScore(200);
+                    playView->percentNow->hitted(true);
+                    playView->combo->addCombo();
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
                     qDebug()<<"Bad Hit!";
                     playView->playEngine->setGrade(0);
+                    playView->percentNow->hitted(false);
+                    playView->combo->endCombo();
                 }
                 scene()->removeItem( colliding_items[i] );
                 delete colliding_items[i];
@@ -64,17 +70,23 @@ void HitPoint::checkCollision(int type)
                     qDebug()<<"Great Hit!";
                     playView->playEngine->setGrade(2);
                     playView->scoreNow->addScore(500);
+                    playView->percentNow->hitted(true);
+                    playView->combo->addCombo();
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
                     qDebug()<<"Good Hit!";
                     playView->playEngine->setGrade(1);
                     playView->scoreNow->addScore(200);
+                    playView->percentNow->hitted(true);
+                    playView->combo->addCombo();
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
                     qDebug()<<"Bad Hit!";
                     playView->playEngine->setGrade(0);
+                    playView->percentNow->hitted(false);
+                    playView->combo->endCombo();
                 }
                 scene()->removeItem( colliding_items[i] );
                 delete colliding_items[i];
